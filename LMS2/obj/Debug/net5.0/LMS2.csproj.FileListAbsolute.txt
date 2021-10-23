@@ -17,7 +17,6 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Home\Privacy
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Create.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Delete.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Details.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Edit.cshtml.g.cs
@@ -159,3 +158,8 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.Views.pdb
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.csproj.CopyComplete
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.genruntimeconfig.cache
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.csproj.AssemblyReference.cache
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Admins\Create.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Admins\Index.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\CreateBook.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\UserLogin.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Create.cshtml.g.cs

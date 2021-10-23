@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Design;
 using LMS2.Models;
-using LMS2.Entity;
+
 
 namespace LMS2
 {
@@ -30,7 +30,8 @@ namespace LMS2
             services.AddControllersWithViews();
             string ConnectionString = @"Server=DESKTOP-8PVEJSN\SQLEXPRESS; Database=LMS2db; Trusted_Connection=true; ConnectRetryCount=0";
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IUserRegistrationRepository, SQlUserRegistrationRepository>();
+            services.AddScoped<IAdminRepository, SQLAdminRepository>();
             services.AddRazorPages();
         }
 
