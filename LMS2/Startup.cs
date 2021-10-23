@@ -32,6 +32,7 @@ namespace LMS2
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));
             services.AddScoped<IUserRegistrationRepository, SQlUserRegistrationRepository>();
             services.AddScoped<IAdminRepository, SQLAdminRepository>();
+            services.AddScoped<IMemberRepository, SQLMemberRepository>();
             services.AddRazorPages();
         }
 

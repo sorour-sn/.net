@@ -17,7 +17,7 @@ namespace LMS2.Models
 
         public AdminLogin Delete(string userName)
         {
-            AdminLogin deleteAdmin = _adminLoginList.FirstOrDefault(u => u.UserName == userName);
+            AdminLogin deleteAdmin = _adminLoginList.FirstOrDefault(a => a.UserName == userName);
             if (deleteAdmin != null)
             {
                 _adminLoginList.Remove(deleteAdmin);

@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+<h1>Profile</h1>
+
+<h4>admin</h4>
+<hr />
+
+<nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        @*<a class="navbar-brand" href="#">
+                <img src="~/images/logo.jpg" width="50" height="60" />
+                Online Library
+            </a>*@
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                @Html.ActionLink("View Books", "ViewBook", "User", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item active">
+                @Html.ActionLink("Sign Up", "Index", "Users", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item active">
+                @Html.ActionLink("Admin Login", "Index", "Admins", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item active">
+                @Html.ActionLink("jdfvbgalijfsubvlzidhfb Login", "UserLogin", "Users", null, new { @class = "nav-link" })
+            </li>
+        </ul>
+    </nav>
+</nav>

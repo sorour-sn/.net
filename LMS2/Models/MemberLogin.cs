@@ -13,9 +13,11 @@ namespace LMS2.Models
 
         [Key]
         [Display(Name ="User Name")]
+        [Required(ErrorMessage ="Enter your Username")]
         public string UserName { get; set; }
 
         [Display(Name = "Password")]
+        [Required(ErrorMessage ="Enter the Password")]
         public string Password { get; set; }
         public bool isAdmin { get; set; }
     }
