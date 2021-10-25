@@ -12,5 +12,7 @@ namespace LMS2.Models
         AdminLogin Add(AdminLogin addAdmin);
         AdminLogin Update(AdminLogin updateAdmin);
         AdminLogin Delete(string userName);
+        AdminLogin AdminLoginAccess(string userName, string password);
+
     }
 }

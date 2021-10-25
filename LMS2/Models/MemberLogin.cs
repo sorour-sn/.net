@@ -20,5 +20,7 @@ namespace LMS2.Models
         [Required(ErrorMessage ="Enter the Password")]
         public string Password { get; set; }
         public bool isAdmin { get; set; }
+        public string SuccessError { get; set; }
+        public bool Access { get; set; }
     }
 }

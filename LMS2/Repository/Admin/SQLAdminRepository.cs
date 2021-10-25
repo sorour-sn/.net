@@ -49,5 +49,15 @@ namespace LMS2.Models
             context.SaveChanges();
             return updateAdmin;
         }
+
+        public AdminLogin AdminLoginAccess(string userName, string password)
+        {
+            AdminLogin model = context.Admins.AsQueryable().Where(u => u.UserName == userName && u.Password == password).FirstOrDefault();
+            if (model == null)
+            {
+                model.SuccessError = "Your username or password or status is incorrect!";
+            }
+            return model;
+        }
     }
 }

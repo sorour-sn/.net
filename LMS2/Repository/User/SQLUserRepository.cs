@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace LMS2.Models
 {
-    public class SQlUserRegistrationRepository : IUserRegistrationRepository
+    public class SQlUserRepository : IUserRepository
     {
         private readonly DatabaseContext context;
 
-        public SQlUserRegistrationRepository(DatabaseContext context)
+        public SQlUserRepository(DatabaseContext context)
         {
             this.context = context;
         }

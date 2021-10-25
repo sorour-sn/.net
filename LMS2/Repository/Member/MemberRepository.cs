@@ -8,12 +8,15 @@ namespace LMS2.Models
     public class MemberRepository : IMemberRepository
     {
         private List<MemberLogin> _memberLoginList;
-
-        public MemberLogin Add(MemberLogin addMember)
+        public MemberLogin Add(UserRegistration addMember)
         {
-            addMember.UserName = _memberLoginList.Max(a => a.UserName);
-            _memberLoginList.Add(addMember);
-            return addMember;
+            MemberLogin member = new MemberLogin();
+            member.FirstName = addMember.FirstName;
+            member.UserName = addMember.UserName;
+            member.Password = addMember.Password;
+            member.isAdmin = addMember.isAdmin;
+            _memberLoginList.Add(member);
+            return member;
         }
 
         public MemberLogin Delete(string userName)
@@ -47,6 +50,16 @@ namespace LMS2.Models
 
             }
             return memberChanges;
+        }
+
+        public MemberLogin MemberLoginAccess(string userName, string password)
+        {
+            MemberLogin member = _memberLoginList.FirstOrDefault(a => a.UserName == userName && a.Password == password && a.isAdmin == false);
+            if (member != null)
+            {
+                member.Access = true;
+            }
+            return member;
         }
     }
 }

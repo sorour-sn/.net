@@ -1,0 +1,46 @@
+﻿@*book*@
+@model IEnumerable<LMS2.Models.BookCreate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookID)
+                @Html.DisplayNameFor(model => model.BookName)
+                @Html.DisplayNameFor(model => model.Image)
+                @Html.DisplayNameFor(model => model.Author)
+                @Html.DisplayNameFor(model => model.Publisher)
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookID)
+                    @Html.DisplayFor(modelItem => item.BookName)
+                    @Html.DisplayFor(modelItem => item.Image)
+                    @Html.DisplayFor(modelItem => item.Author)
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

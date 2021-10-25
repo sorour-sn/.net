@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LMS2.Models
 {
-    public interface IUserRegistrationRepository
+    public interface IUserRepository
     {
         UserRegistration GetUserRegistration(string UserName);
         IEnumerable<UserRegistration> GetAllUsers();

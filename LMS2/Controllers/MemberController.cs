@@ -12,11 +12,11 @@ namespace LMS2.Controllers
     public class MemberController : Controller
     {
         private readonly IMemberRepository _MemberRepository;
-        private readonly IUserRegistrationRepository _UserRegistrationRepository;
+        private readonly IUserRepository _UserRegistrationRepository;
         private readonly DatabaseContext _context;
         //private object Users;
 
-        public MemberController(DatabaseContext context, IUserRegistrationRepository userRegistrationRepository, IMemberRepository memberRepository)
+        public MemberController(DatabaseContext context, IUserRepository userRegistrationRepository, IMemberRepository memberRepository)
         {
             _context = context;
             _UserRegistrationRepository = userRegistrationRepository;
@@ -25,8 +25,9 @@ namespace LMS2.Controllers
 
         public IActionResult Index()
         {
-            var model = _MemberRepository.GetAllMembers();
-            return View(model);
+            //var model = _MemberRepository.GetAllMembers();
+            //return View(model);
+            return View();
         }
 
         public IActionResult Login()
@@ -37,21 +38,39 @@ namespace LMS2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(MemberLogin member)
         {
+            //GetMember(member.UserName);
             if (ModelState.IsValid)
             {
-                MemberLogin MemberModel = _MemberRepository.GetMember(member.UserName); ////add checking password!
-                if (MemberModel != null)
+                MemberLogin MemberModel = _MemberRepository.MemberLoginAccess(member.UserName, member.Password);
+                if (ModelState.IsValid)
                 {
-                    return View("Profile");
+                    if (MemberModel != null &&  MemberModel.Access == true)
+                    {
+                        return View("Profile");
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
-                UserRegistration AdminUser = _UserRegistrationRepository.GetUserRegistration(member.UserName);
-                if (AdminUser != null)
+                else
                 {
-                    _MemberRepository.Add(member);
-                    return View("Profile");
+                    //MemberModel.SuccessError = "incorrect password or username or status";
+                    return View();
                 }
+                //UserRegistration AdminUser = _UserRegistrationRepository.GetUserRegistration(member.UserName);
+                //if (AdminUser != null)
+                //{
+                //    _MemberRepository.Add(AdminUser);
+                //    return View("Profile");
+                //}
             }
-            ViewBag.Error = "Admin Not Found!";
+            //ViewBag.Error = "Admin Not Found!";
+            return View();
+        }
+
+        public ActionResult Profile()
+        {
             return View();
         }
     }

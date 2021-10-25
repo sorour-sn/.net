@@ -10,7 +10,7 @@ namespace LMS2.Models
         private List<AdminLogin> _adminLoginList;
         public AdminLogin Add(AdminLogin addAdmin)
         {
-            addAdmin.UserName = _adminLoginList.Max(a => a.UserName);
+            //addAdmin.UserName = _adminLoginList.Max(a => a.UserName);
             _adminLoginList.Add(addAdmin);
             return addAdmin;
         }
@@ -47,5 +47,31 @@ namespace LMS2.Models
             }
             return adminChanges;
         }
+        AdminLogin AdminLoginAccess(string userName, string password)
+        {
+            AdminLogin admin = _adminLoginList.FirstOrDefault(a => a.UserName == userName && a.Password == password && a.isAdmin == false);
+            if (admin != null)
+            {
+                admin.Access = true;
+            }
+            admin.Access = false;
+            return admin;
+        }
+
+        AdminLogin IAdminRepository.AdminLoginAccess(string userName, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        //AdminLogin IAdminRepository.AdminLoginAccess(string userName, string password)
+        //{
+        //    AdminLogin member = _adminLoginList.FirstOrDefault(a => a.UserName == userName && a.Password == password && a.isAdmin == false);
+        //    if (member != null)
+        //    {
+        //        member.Access = true;
+        //    }
+        //    member.Access = false;
+        //    return member;
+        //}
     }
 }

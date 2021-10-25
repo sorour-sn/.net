@@ -26,13 +26,23 @@ namespace LMS2
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        { 
+        {
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews();
             string ConnectionString = @"Server=DESKTOP-8PVEJSN\SQLEXPRESS; Database=LMS2db; Trusted_Connection=true; ConnectRetryCount=0";
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));
-            services.AddScoped<IUserRegistrationRepository, SQlUserRegistrationRepository>();
+            services.AddScoped<IUserRepository, SQlUserRepository>();
             services.AddScoped<IAdminRepository, SQLAdminRepository>();
             services.AddScoped<IMemberRepository, SQLMemberRepository>();
+            services.AddScoped<IBookRepository, SQLBookRepository>();
             services.AddRazorPages();
         }
 
@@ -55,6 +65,8 @@ namespace LMS2
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

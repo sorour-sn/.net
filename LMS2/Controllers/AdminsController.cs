@@ -6,18 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LMS2.Models;
-
+using Microsoft.AspNetCore.Http;
 
 namespace LMS2.Controllers
 {
     public class AdminsController : Controller
     {
-        private readonly IUserRegistrationRepository _userRegistrationRepository;
+        private readonly IUserRepository _userRegistrationRepository;
         private readonly IAdminRepository _AdminRepository;
         private readonly DatabaseContext _context;
-        //private object Admins;
 
-        public AdminsController(DatabaseContext context, IAdminRepository adminRepository, IUserRegistrationRepository userRegistrationRepository)
+        public AdminsController(DatabaseContext context, IAdminRepository adminRepository, IUserRepository userRegistrationRepository)
         {
             _context = context;
             _AdminRepository = adminRepository;
@@ -43,6 +42,7 @@ namespace LMS2.Controllers
                 AdminLogin AdminModel = _AdminRepository.GetAdmin(admin.UserName); ////add checking password!
                 if( AdminModel != null)
                 {
+                    //ISession.Set(AdminModel.FirstName, Byte[32]);
                     return View("Profile");                    
                 }
                 UserRegistration AdminUser = _userRegistrationRepository.GetUserRegistration(admin.UserName);
@@ -54,6 +54,17 @@ namespace LMS2.Controllers
             }
             ViewBag.Error = "Admin Not Found!";
             return View();
+        }
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+        public IActionResult ViewMembers()
+        {
+            var model = _userRegistrationRepository.GetAllUsers();
+            return View(model);
         }
     }
 }

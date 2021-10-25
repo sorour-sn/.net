@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LMS2.Models
 {
-    public class UserRegistrationRepository : IUserRegistrationRepository
+    public class UserRepository : IUserRepository
     {
         private List<UserRegistration> _userRegistrationList;
 
@@ -52,11 +52,6 @@ namespace LMS2.Models
             }
             return userChanges;
         }
-
-        //public UserRegistrationRepository()
-        //{
-        //    _userRegistrationList = new List<UserRegistration>;
-        //}
 
     }
 }

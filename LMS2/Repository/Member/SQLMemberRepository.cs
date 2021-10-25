@@ -8,15 +8,20 @@ namespace LMS2.Models
     public class SQLMemberRepository : IMemberRepository
     {
         private readonly DatabaseContext context;
-        public SQLMemberRepository(DatabaseContext context)
+        public SQLMemberRepository(DatabaseContext context) 
         {
             this.context = context;
         }
-        public MemberLogin Add(MemberLogin addMember)
+        public MemberLogin Add(UserRegistration addMember)
         {
-            context.Members.Add(addMember);
+            MemberLogin member = new MemberLogin();
+            member.FirstName = addMember.FirstName;
+            member.UserName = addMember.UserName;
+            member.Password = addMember.Password;
+            member.isAdmin = addMember.isAdmin;
+            context.Members.Add(member);
             context.SaveChanges();
-            return addMember;
+            return member;           
         }
 
         public MemberLogin Delete(string userName)
@@ -46,6 +51,25 @@ namespace LMS2.Models
             mMember.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return updateMember;
+        }
+
+        public MemberLogin MemberLoginAccess(string userName, string password)
+        {
+            MemberLogin model = context.Members.Find(userName);
+            if (model != null)
+            {
+                if (model.Password == password)
+                {
+                    model.SuccessError = "Successed!";
+                }
+            }
+
+            //MemberLogin model = context.Members.AsQueryable().Where(u => u.UserName == userName && u.Password == password).FirstOrDefault();
+            //if (model != null)
+            //{
+            //    model.SuccessError = "Successed!";
+            //}           
+            return model;
         }
     }
 }

@@ -28,21 +28,21 @@
                 </ul>
             </div>
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                @*<li class="nav-item active">
                     @Html.ActionLink("View Books", "ViewBook", "User", null, new { @class = "nav-link" })
+                </li>*@
+                <li class="nav-item active">
+                    @Html.ActionLink("Sign Up", "Signup", "Users", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item active">
-                    @Html.ActionLink("Sign Up", "Index", "Users", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Member Login", "Login", "Member", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item active">
-                    @Html.ActionLink("Member Login", "Index", "Member", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Admin Login", "Login", "Admins", null, new { @class = "nav-link" })
                 </li>
-                <li class="nav-item active">
-                    @Html.ActionLink("Admin Login", "Index", "Admins", null, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item active">
+                @*<li class="nav-item active">
                     @Html.ActionLink("jdfvbgalijfsubvlzidhfb Login", "UserLogin", "Users", null, new { @class = "nav-link" })
-                </li>
+                </li>*@
             </ul>
         </nav>
     </nav>
