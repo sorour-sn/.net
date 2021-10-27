@@ -43,7 +43,7 @@ namespace LMS2.Controllers
                 if(userRegistration.isAdmin == true)
                 {
                     //Session["admin-username"] = userRegistration.UserName;
-                    return RedirectToAction("Profile", "Admins");
+                    return RedirectToAction("Login", "Admins");
                 }
                 else
                 {
