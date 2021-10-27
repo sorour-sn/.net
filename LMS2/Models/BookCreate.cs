@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,9 +9,8 @@ namespace LMS2.Models
 {
     public class BookCreate
     {
-        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         [Display(Name = "Book Id")]
-        [Required]
         public int BookID { get; set; }
 
         [Required]

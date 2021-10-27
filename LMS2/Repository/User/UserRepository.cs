@@ -31,7 +31,7 @@ namespace LMS2.Models
             return _userRegistrationList;
         }
 
-        public UserRegistration GetUserRegistration(string UserName)
+        public UserRegistration GetUser(string UserName)
         {
             return _userRegistrationList.FirstOrDefault(u => u.UserName == UserName);
         }

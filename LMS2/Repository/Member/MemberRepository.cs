@@ -54,12 +54,7 @@ namespace LMS2.Models
 
         public MemberLogin MemberLoginAccess(string userName, string password)
         {
-            MemberLogin member = _memberLoginList.FirstOrDefault(a => a.UserName == userName && a.Password == password && a.isAdmin == false);
-            if (member != null)
-            {
-                member.Access = true;
-            }
-            return member;
+            return _memberLoginList.FirstOrDefault(a => a.UserName == userName && a.Password == password && a.isAdmin == false);
         }
     }
 }

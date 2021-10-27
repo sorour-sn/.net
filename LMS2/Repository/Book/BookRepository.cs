@@ -11,7 +11,15 @@ namespace LMS2.Models
 
         public BookCreate Add(BookCreate addBook)
         {
-            addBook.BookID = _bookList.Max(a => a.BookID)+1;
+            //BookCreate newBook = new BookCreate
+            //{
+            //addBook.BookID = _bookList.Max(a => a.BookID) + 1;
+            //    BookName = addBook.BookName,
+            //    Author = addBook.Author,
+            //    Publisher = addBook.Publisher,
+            //    Description = addBook.Description,
+            //    Image = addBook.Image
+            //};
             _bookList.Add(addBook);
             return addBook;
         }

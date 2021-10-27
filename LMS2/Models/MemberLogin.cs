@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace LMS2.Models
 {
     public class MemberLogin
     {
+        public const string SessionKeyName = "_Username";
+
         [Display(Name ="First Name")]
         public string FirstName { get; set; }
 
@@ -19,8 +22,10 @@ namespace LMS2.Models
         [Display(Name = "Password")]
         [Required(ErrorMessage ="Enter the Password")]
         public string Password { get; set; }
+
+        [Display(Name ="Status")]
         public bool isAdmin { get; set; }
-        public string SuccessError { get; set; }
-        public bool Access { get; set; }
+        public string? SuccessError { get; set; }
+        public bool? Access { get; set; }
     }
 }

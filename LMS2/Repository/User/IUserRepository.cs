@@ -7,7 +7,7 @@ namespace LMS2.Models
 {
     public interface IUserRepository
     {
-        UserRegistration GetUserRegistration(string UserName);
+        UserRegistration GetUser(string UserName);
         IEnumerable<UserRegistration> GetAllUsers();
         UserRegistration Add(UserRegistration addUser);
         UserRegistration Update(UserRegistration updateUser);   //use for user management

@@ -37,7 +37,7 @@ namespace LMS2.Models
             return context.Users;
         }
 
-        public UserRegistration GetUserRegistration(string UserName)
+        public UserRegistration GetUser(string UserName)
         {
             return context.Users.Find(UserName);
         }

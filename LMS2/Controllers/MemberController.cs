@@ -6,20 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LMS2.Models;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace LMS2.Controllers
 {
+    //[Route("member")]
     public class MemberController : Controller
     {
         private readonly IMemberRepository _MemberRepository;
-        private readonly IUserRepository _UserRegistrationRepository;
+        private readonly IUserRepository _UserRepository;
         private readonly DatabaseContext _context;
         //private object Users;
 
-        public MemberController(DatabaseContext context, IUserRepository userRegistrationRepository, IMemberRepository memberRepository)
+        public MemberController(DatabaseContext context, IUserRepository userRepository, IMemberRepository memberRepository)
         {
             _context = context;
-            _UserRegistrationRepository = userRegistrationRepository;
+            _UserRepository = userRepository;
             _MemberRepository = memberRepository;
         }
 
@@ -41,37 +44,46 @@ namespace LMS2.Controllers
             //GetMember(member.UserName);
             if (ModelState.IsValid)
             {
-                MemberLogin MemberModel = _MemberRepository.MemberLoginAccess(member.UserName, member.Password);
-                if (ModelState.IsValid)
+                MemberLogin memberModel = _MemberRepository.GetMember(member.UserName); 
+                if ( memberModel != null) //if the username is valid in database and is member go to profile view
                 {
-                    if (MemberModel != null &&  MemberModel.Access == true)
+                    MemberLogin MemberModel = _MemberRepository.MemberLoginAccess(member.UserName, member.Password);
+                    if (MemberModel != null)
                     {
+                        HttpContext.Session.SetString("MemberSession", MemberModel.UserName);
                         return View("Profile");
                     }
-                    else
+                }
+                else //if the username is valid in users database and is member first transfer data to members then go to profile view
+                {
+                    UserRegistration UserModel = _UserRepository.GetUser(member.UserName);
+                    if (UserModel != null)
                     {
-                        return View();
+                        MemberLogin newMember = _MemberRepository.Add(UserModel);
+                        MemberLogin NewMember = _MemberRepository.MemberLoginAccess(newMember.UserName, newMember.Password);
+                        if (NewMember != null)
+                        {
+                            HttpContext.Session.SetString("MemberSession", JsonConvert.SerializeObject(NewMember)); //another method 
+                            return View("Profile");
+                        }
                     }
                 }
-                else
-                {
-                    //MemberModel.SuccessError = "incorrect password or username or status";
-                    return View();
-                }
-                //UserRegistration AdminUser = _UserRegistrationRepository.GetUserRegistration(member.UserName);
-                //if (AdminUser != null)
-                //{
-                //    _MemberRepository.Add(AdminUser);
-                //    return View("Profile");
-                //}
+                return View(); 
             }
             //ViewBag.Error = "Admin Not Found!";
             return View();
         }
 
-        public ActionResult Profile()
+        public IActionResult Logout()
         {
             return View();
+        }
+
+        public ActionResult Profile()
+        {
+            //MemberLogin loggedMember = JsonConvert.DeserializeObject<MemberLogin>(HttpContext.Session.GetString("MemberSession"));
+            var MemberSession = JsonConvert.DeserializeObject<MemberLogin>(HttpContext.Session.GetString("MemberSession"));
+            return View(MemberSession);
         }
     }
 }

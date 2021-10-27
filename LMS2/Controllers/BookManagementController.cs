@@ -19,20 +19,26 @@ namespace LMS2.Controllers
             _context = context;
             _BookRepository = bookRepository;
         }
-        public IActionResult Index()
+        public IActionResult ViewBooks()
         {
-            var model = _BookRepository.GetAllBooks(); //correct!
+            var model = _BookRepository.GetAllBooks(); 
             return View(model);
         }
-
-        public IActionResult Add(BookCreate book)
+        public IActionResult Add()
         {
-            if (ModelState.IsValid)
-            {
-                _BookRepository.Add(book);
-                return View("Index");
-            }
-
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(BookCreate addBook)
+        {
+            //if (ModelState.IsValid)
+            //{
+                _BookRepository.Add(addBook);
+                //return View("ViewBooks");
+                //return RedirectToAction("Profile", "Admins");
+                //return View("ViewBooks");
+            //}
             return View();
         }
     }

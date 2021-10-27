@@ -31,11 +31,11 @@ namespace LMS2
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-
+            services.AddMemoryCache();
             services.AddControllersWithViews();
             string ConnectionString = @"Server=DESKTOP-8PVEJSN\SQLEXPRESS; Database=LMS2db; Trusted_Connection=true; ConnectRetryCount=0";
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));

@@ -7,6 +7,7 @@ namespace LMS2.Models
 {
     public class SQLBookRepository : IBookRepository
     {
+        private List<BookCreate> _bookList;
         private readonly DatabaseContext context;
         public SQLBookRepository(DatabaseContext context) 
         {
@@ -14,6 +15,17 @@ namespace LMS2.Models
         }
         public BookCreate Add(BookCreate addBook)
         {
+            //BookCreate newBook = new BookCreate
+            //{
+            //    BookID = _bookList.Max(a => a.BookID) + 1,
+            //////addBook.BookID = context.Books.Max(a => a.BookID) + 1; //here is the problem!!!!!!!!
+            //    BookName = addBook.BookName,
+            //    Author = addBook.Author,
+            //    Publisher = addBook.Publisher,
+            //    Image = addBook.Image,
+            //    Description = addBook.Description
+            //};
+
             context.Books.Add(addBook);
             context.SaveChanges();
             return addBook;

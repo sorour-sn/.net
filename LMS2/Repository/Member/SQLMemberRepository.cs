@@ -55,21 +55,13 @@ namespace LMS2.Models
 
         public MemberLogin MemberLoginAccess(string userName, string password)
         {
-            MemberLogin model = context.Members.Find(userName);
-            if (model != null)
-            {
-                if (model.Password == password)
-                {
-                    model.SuccessError = "Successed!";
-                }
-            }
 
-            //MemberLogin model = context.Members.AsQueryable().Where(u => u.UserName == userName && u.Password == password).FirstOrDefault();
+            return context.Members.AsQueryable().Where(u => u.UserName == userName && u.Password == password).FirstOrDefault();
             //if (model != null)
             //{
             //    model.SuccessError = "Successed!";
             //}           
-            return model;
+
         }
     }
 }

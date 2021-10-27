@@ -45,7 +45,7 @@ namespace LMS2.Controllers
                     //ISession.Set(AdminModel.FirstName, Byte[32]);
                     return View("Profile");                    
                 }
-                UserRegistration AdminUser = _userRegistrationRepository.GetUserRegistration(admin.UserName);
+                UserRegistration AdminUser = _userRegistrationRepository.GetUser(admin.UserName);
                 if (AdminUser != null)
                 {
                     _AdminRepository.Add(admin);

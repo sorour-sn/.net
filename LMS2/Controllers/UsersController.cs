@@ -47,7 +47,7 @@ namespace LMS2.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Profile", "Members");
+                    return RedirectToAction("Profile", "Member");
                 }
             }
             ViewBag.SuccessMessage = "Something went wrong! Please try again.";
