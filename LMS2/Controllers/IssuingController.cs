@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using LMS2.Models;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace LMS2.Controllers
 {
@@ -30,10 +34,10 @@ namespace LMS2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Issue(BookIssue IssuedBook)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 BookIssue newBookIssue =  _BookIssueRepository.Issue(IssuedBook.UserName, IssuedBook.BookID);
-            }
+            //}
             return View();
         }
     }

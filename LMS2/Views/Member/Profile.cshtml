@@ -7,6 +7,8 @@
 }
 
 <h1>Profile</h1>
+Username : @LMS2.Models.MemberLogin.SessionKeyName
+@*Username : @HttpContext.Current.Session["_Username"].ToString();*@
 
 <div>
     <h4>MemberLogin</h4>
@@ -50,13 +52,4 @@
 </div>
 @*Username: @HttpContext.Session.GetString(MemberLogin.SessionKeyName)*@
 
-@{
-    string username;
-    void OnGet()
-    {
-    };
-    void OnSet()
-    {
 
-    };
-}

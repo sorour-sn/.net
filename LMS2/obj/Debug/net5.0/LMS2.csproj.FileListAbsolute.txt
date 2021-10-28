@@ -164,3 +164,5 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.pdb
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.genruntimeconfig.cache
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.csproj.AssemblyReference.cache
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\ViewBooks.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\Index.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\Issue.cshtml.g.cs

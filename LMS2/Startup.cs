@@ -31,6 +31,7 @@ namespace LMS2
 
             services.AddSession(options =>
             {
+                options.Cookie.Name = ".AdventureWorks.Session";
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
@@ -43,6 +44,7 @@ namespace LMS2
             services.AddScoped<IAdminRepository, SQLAdminRepository>();
             services.AddScoped<IMemberRepository, SQLMemberRepository>();
             services.AddScoped<IBookRepository, SQLBookRepository>();
+            services.AddScoped<IBookIssueRepository, SQLBookIssueRepository>();
             services.AddRazorPages();
         }
 

@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LMS2.Models
 {
-    public class MemberLogin
+    public class MemberLogin : PageModel
     {
         public const string SessionKeyName = "_Username";
 
@@ -27,5 +28,14 @@ namespace LMS2.Models
         public bool isAdmin { get; set; }
         public string? SuccessError { get; set; }
         public bool? Access { get; set; }
+
+        public void OnGet()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
+            {
+                HttpContext.Session.SetString(SessionKeyName, "Member");
+            }
+            var name = HttpContext.Session.GetString(SessionKeyName);
+        }
     }
 }

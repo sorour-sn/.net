@@ -50,7 +50,7 @@ namespace LMS2.Controllers
                     MemberLogin MemberModel = _MemberRepository.MemberLoginAccess(member.UserName, member.Password);
                     if (MemberModel != null)
                     {
-                        HttpContext.Session.SetString("MemberSession", MemberModel.UserName);
+                        HttpContext.Session.SetString("_Username", MemberModel.UserName);
                         return View("Profile");
                     }
                 }
