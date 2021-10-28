@@ -1,4 +1,4 @@
-﻿@model LMS2.Models.BookCreate
+﻿@model LMS2.Models.BookIssue
 
 @{
     ViewData["Title"] = "Add";
@@ -13,21 +13,21 @@
         <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
+                    <label asp-for="BookID" class="control-label"></label>
+                    <input asp-for="BookID" class="form-control" />
+                    <span asp-validation-for="BookID" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
                 <label asp-for="BookID" class="control-label"></label>
                 <input asp-for="BookID" class="form-control" />
                 <span asp-validation-for="BookID" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="BookName" class="control-label"></label>
-                <input asp-for="BookName" class="form-control" />
-                <span asp-validation-for="BookName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Author" class="control-label"></label>
                 <input asp-for="Author" class="form-control" />
                 <span asp-validation-for="Author" class="text-danger"></span>
@@ -41,18 +41,19 @@
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" />
+                <input type="submit" value="Issue" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
+@*<div>
     <a asp-action="ViewBooks">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

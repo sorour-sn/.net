@@ -28,5 +28,8 @@ namespace LMS2.Models
 
         [Required]
         public string Description { get; set; }
+
+        [Required]
+        public bool Stock { get; set; }
     }
 }

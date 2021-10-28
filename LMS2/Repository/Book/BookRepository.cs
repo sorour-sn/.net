@@ -20,6 +20,7 @@ namespace LMS2.Models
             //    Description = addBook.Description,
             //    Image = addBook.Image
             //};
+            addBook.Stock = false;
             _bookList.Add(addBook);
             return addBook;
         }

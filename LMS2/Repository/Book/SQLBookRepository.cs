@@ -25,7 +25,7 @@ namespace LMS2.Models
             //    Image = addBook.Image,
             //    Description = addBook.Description
             //};
-
+            addBook.Stock = false;
             context.Books.Add(addBook);
             context.SaveChanges();
             return addBook;

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace LMS2.Models
 {
-    interface IBookIssueRepository : IBookRepository
+    public interface IBookIssueRepository 
     {
-        BookIssue Issue(string userName, string bookName);
-
+        BookIssue Issue(string userName, int bookId);
     }
 }
