@@ -18,15 +18,16 @@ namespace LMS2.Models
             
             MemberLogin member = context.Members.Find(userName);
             BookCreate book = context.Books.Find(bookId);
-            BookIssue issuBook = new BookIssue();
-            issuBook.BookID = book.BookID;
-            issuBook.BookName = book.BookName;
-            issuBook.UserName = member.UserName;
-            issuBook.FirstName = member.FirstName;
+            BookIssue issueBook = new BookIssue();
+            issueBook.BookID = book.BookID;
+            issueBook.BookName = book.BookName;
+            issueBook.UserName = member.UserName;
+            issueBook.FirstName = member.FirstName;
+            issueBook.Due_Date = DateTime.Today.ToString("dd/MM/yyyy");
 
-            context.BookIssues.Add(issuBook);
+            context.BookIssues.Add(issueBook);
             context.SaveChanges();
-            return issuBook;
+            return issueBook;
         }
     }
 }

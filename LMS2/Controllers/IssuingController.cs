@@ -34,10 +34,10 @@ namespace LMS2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Issue(BookIssue IssuedBook)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 BookIssue newBookIssue =  _BookIssueRepository.Issue(IssuedBook.UserName, IssuedBook.BookID);
-            //}
+            }
             return View();
         }
     }

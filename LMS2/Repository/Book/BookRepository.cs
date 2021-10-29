@@ -1,9 +1,10 @@
-﻿using System;
+﻿using LMS2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LMS2.Models
+namespace LMS2.Repository.Book
 {
     public class BookRepository : IBookRepository
     {
@@ -11,15 +12,6 @@ namespace LMS2.Models
 
         public BookCreate Add(BookCreate addBook)
         {
-            //BookCreate newBook = new BookCreate
-            //{
-            //addBook.BookID = _bookList.Max(a => a.BookID) + 1;
-            //    BookName = addBook.BookName,
-            //    Author = addBook.Author,
-            //    Publisher = addBook.Publisher,
-            //    Description = addBook.Description,
-            //    Image = addBook.Image
-            //};
             addBook.Stock = false;
             _bookList.Add(addBook);
             return addBook;

@@ -9,8 +9,9 @@ namespace LMS2.Models
 {
     public class BookCreate
     {
+        //[Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
-        [Display(Name = "Book Id")]
+        [Display(Name = "ISBN")]
         public int BookID { get; set; }
 
         [Required]

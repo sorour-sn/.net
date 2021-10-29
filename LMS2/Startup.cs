@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Design;
 using LMS2.Models;
+using LMS2.Repository.Book;
 
 
 namespace LMS2
@@ -31,7 +32,7 @@ namespace LMS2
 
             services.AddSession(options =>
             {
-                options.Cookie.Name = ".AdventureWorks.Session";
+                //options.Cookie.Name = ".AdventureWorks.Session";
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;

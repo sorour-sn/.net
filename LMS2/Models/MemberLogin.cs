@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LMS2.Models
 {
-    public class MemberLogin : PageModel
+    public class MemberLogin 
     {
-        public const string SessionKeyName = "_Username";
+        //public const string SessionKeyName = "_Username";
 
         [Display(Name ="First Name")]
         public string FirstName { get; set; }
@@ -31,11 +31,11 @@ namespace LMS2.Models
 
         public void OnGet()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
-            {
-                HttpContext.Session.SetString(SessionKeyName, "Member");
-            }
-            var name = HttpContext.Session.GetString(SessionKeyName);
+        //    if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
+        //    {
+        //        HttpContext.Session.SetString(SessionKeyName, "Member");
+        //    }
+        //    var name = HttpContext.Session.GetString(SessionKeyName);
         }
     }
 }

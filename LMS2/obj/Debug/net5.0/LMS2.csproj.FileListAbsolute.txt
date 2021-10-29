@@ -124,6 +124,7 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\bin\Debug\net5.0\runtimes\win-arm\lib\net
 C:\Users\lenovo\source\repos\LMS2\LMS2\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\lenovo\source\repos\LMS2\LMS2\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\lenovo\source\repos\LMS2\LMS2\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.csproj.AssemblyReference.cache
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.AssemblyInfoInputs.cache
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.AssemblyInfo.cs
@@ -142,10 +143,14 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Admins\Index
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Admins\Login.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Admins\Profile.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\Add.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\ViewBooks.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\Index.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\Issue.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\Index.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\Login.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\Logout.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\Profile.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -162,7 +167,3 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.dll
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\ref\LMS2.dll
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.pdb
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.genruntimeconfig.cache
-C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\LMS2.csproj.AssemblyReference.cache
-C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\ViewBooks.cshtml.g.cs
-C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\Index.cshtml.g.cs
-C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\Issue.cshtml.g.cs

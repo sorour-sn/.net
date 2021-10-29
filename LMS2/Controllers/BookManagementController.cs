@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LMS2.Models;
+using LMS2.Repository.Book;
 
 
 namespace LMS2.Controllers
@@ -32,13 +33,13 @@ namespace LMS2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(BookCreate addBook)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 _BookRepository.Add(addBook);
                 //return View("ViewBooks");
                 //return RedirectToAction("Profile", "Admins");
-                //return View("ViewBooks");
-            //}
+                return RedirectToAction("ViewBooks", "BookManagement");
+            }
             return View();
         }
     }

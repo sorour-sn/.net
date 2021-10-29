@@ -17,14 +17,16 @@ namespace LMS2.Models
             MemberLogin member = _memberLoginList.FirstOrDefault(x => x.UserName == userName);
             if (member != null)
             {
-                BookCreate book = _bookList.FirstOrDefault(a => a.BookID == bookId);
-                //BookCreate book = _bookList.FirstOrDefault(x => x.BookName == bookName);
+                BookCreate book = _bookList.FirstOrDefault(x => x.BookID == bookId);
+                //BookCreate book = _bookList.FirstOrDefault(a => a.BookID == bookId);
                 if (book != null && book.Stock == false)
                 {
+                    book.Stock = true;
                     bookIssue.BookID = book.BookID;
                     bookIssue.BookName = book.BookName;
                     bookIssue.UserName = member.UserName;
                     bookIssue.FirstName = member.FirstName;
+                    bookIssue.Due_Date = DateTime.Today.ToString("dd/MM/yyyy");
                 }
             }
             return bookIssue;
