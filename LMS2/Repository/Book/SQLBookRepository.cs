@@ -22,7 +22,7 @@ namespace LMS2.Repository.Book
             return addBook;
         }
 
-        public BookCreate Delete(int Id)
+        public BookCreate Delete(string Id)
         {
             BookCreate book = context.Books.Find(Id);
             if (book != null)
@@ -38,7 +38,7 @@ namespace LMS2.Repository.Book
             return context.Books;
         }
 
-        public BookCreate GetBook(int Id)
+        public BookCreate GetBook(string Id)
         {
             return context.Books.Find(Id);
         }

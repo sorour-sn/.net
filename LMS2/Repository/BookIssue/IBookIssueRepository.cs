@@ -7,6 +7,6 @@ namespace LMS2.Models
 {
     public interface IBookIssueRepository 
     {
-        BookIssue Issue(string userName, int bookId);
+        BookIssue Issue(string userName, string bookId);
     }
 }

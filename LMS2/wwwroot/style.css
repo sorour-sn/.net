@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--linkPrimary) !important;
+}
+
+sl-button::part(label) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bs-indigo);
+    border-radius: 10px;
+    /* width: 10px; */
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgb(33, 23, 59);
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.main-sidebar {
+    height: 100%;
+    width: 85px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    box-shadow: 1px 0 12px var(--shadowgrey);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-sidebar__top {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+
+.main-sidebar__item {
+    display: flex;
+}
+
+.main-sidebar__item img {
+    width: 30px;
+    height: 30px;
+}
+
+.main-sidebar__item.active {
+    border-left: 5px solid black;
+}
+
+.main-sidebar__bottom {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.content__header {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content__header-top {
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content__header-poster {
+    background-image: url(assets/index-poster.png);
+    height: 200px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.book-item {
+    width: 212px;
+    height: 232px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 15px;
+    border-radius: 15px;
+    gap: 10px;
+}
+
+.book-item img {
+    height: 153px;
+    object-fit: cover;
+}
+
+
+.content__section {
+    display: grid;
+    gap: 15px;
+}

@@ -7,18 +7,20 @@ namespace LMS2.Models
 {
     public class SQLBookIssueRepository : IBookIssueRepository
     {
+        private List<BookIssue> _bookIssuelist;
         private readonly DatabaseContext context;
         public SQLBookIssueRepository(DatabaseContext context) 
         {
             this.context = context;
         }
 
-        public BookIssue Issue(string userName, int bookId)
+        public BookIssue Issue(string userName, string bookId)
         {
-            
+            //BookIssue.HasNoKey();
             MemberLogin member = context.Members.Find(userName);
             BookCreate book = context.Books.Find(bookId);
             BookIssue issueBook = new BookIssue();
+            issueBook.IssueId = _bookIssuelist.Max(a => a.IssueId)+1;
             issueBook.BookID = book.BookID;
             issueBook.BookName = book.BookName;
             issueBook.UserName = member.UserName;

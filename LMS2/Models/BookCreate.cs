@@ -12,7 +12,7 @@ namespace LMS2.Models
         //[Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         [Display(Name = "ISBN")]
-        public int BookID { get; set; }
+        public string BookID { get; set; }
 
         [Required]
         public string Image { get; set; }

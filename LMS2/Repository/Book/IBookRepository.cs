@@ -8,10 +8,10 @@ namespace LMS2.Repository.Book
 {
     public interface IBookRepository
     {
-        BookCreate GetBook(int Id); 
+        BookCreate GetBook(string Id); 
         IEnumerable<BookCreate> GetAllBooks();
         BookCreate Add(BookCreate addBook);
         BookCreate Update(BookCreate updateBook);
-        BookCreate Delete(int Id);
+        BookCreate Delete(string Id);
     }
 }

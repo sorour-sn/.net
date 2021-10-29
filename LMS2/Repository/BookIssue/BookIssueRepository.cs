@@ -11,7 +11,7 @@ namespace LMS2.Models
         private List<MemberLogin> _memberLoginList;
         private List<BookIssue> _bookIssuelist;
 
-        public BookIssue Issue(string userName, int bookId)
+        public BookIssue Issue(string userName, string bookId)
         {
             BookIssue bookIssue = new BookIssue();
             MemberLogin member = _memberLoginList.FirstOrDefault(x => x.UserName == userName);
@@ -22,6 +22,7 @@ namespace LMS2.Models
                 if (book != null && book.Stock == false)
                 {
                     book.Stock = true;
+                    bookIssue.IssueId = _bookIssuelist.Max(a => a.IssueId) +1;
                     bookIssue.BookID = book.BookID;
                     bookIssue.BookName = book.BookName;
                     bookIssue.UserName = member.UserName;

@@ -1,46 +1,14 @@
-@model LMS2.Models.UserRegistration
+﻿@model LMS2.Models.UserRegistration
 
 @{
-    Layout = "_Layout";
     ViewData["Title"] = "Create";
 }
 
+<h1>Create</h1>
 
-<div class="background-pattern">
-        <img src="/assets/pink-pattenn.png" />
-      </div>
-      <div class="center">
-        <!-- <div class="form"> -->
-          <form asp-action="Signup" class="form">
-              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <h2>Sign up</h2>
-            <div class="form__container shadow grid">
-              <input type="text" asp-for="FirstName" placeholder="First Name" class="form-control" />
-              <input type="text" asp-for="LastName" placeholder="Last Name" class="form-control" />
-              <input type="text" asp-for="UserName" placeholder="User Name" class="form-control" />
-              <input type="email" asp-for="Email" placeholder="Email" class="form-control" />
-              <input type="password" asp-for="Password" placeholder="Password" class="form-control" />
-              <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" class="form-control" />
-              <input type="text" asp-for="ContactNumber" placeholder="Contact Number" class="form-control" />
-              <input type="text" asp-for="DoB" placeholder="Birthday" class="form-control" />
-              <input type="text" asp-for="Country" placeholder="Country" class="form-control" />
-              <input type="text" asp-for="City" placeholder="City" class="form-control" />
-              <input type="text" asp-for="Address" placeholder="Address" class="form-control" />
-              <div class="form-check">
-                <input asp-for="isAdmin" class="form-check-input" type="checkbox" value="" id="isAdminCheck" />
-                <label asp-for="isAdmin" class="form-check-label" for="isAdminCheck">
-                  is Admin
-                </label>
-              </div>
-            </div>
-            <div class="form__end">
-              <input type="submit" class="btn btn-success" value="Create" />
-            </div>
-          </form>
-        <!-- </div> -->
-      </div>
-
-@* <div class="row">
+<h4>User</h4>
+<hr />
+<div class="row">
     <div class="col-md-4">
         <form asp-action="Signup">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -110,7 +78,7 @@
             </div>
         </form>
     </div>
-</div> *@
+</div>
 
 <div>
     <a asp-action="Index">Back to List</a>

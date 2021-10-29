@@ -17,7 +17,7 @@ namespace LMS2.Repository.Book
             return addBook;
         }
 
-        public BookCreate Delete(int Id)
+        public BookCreate Delete(string Id)
         {
             BookCreate deleteBook = _bookList.FirstOrDefault(a => a.BookID == Id);
             if (deleteBook != null)
@@ -32,7 +32,7 @@ namespace LMS2.Repository.Book
             return _bookList;
         }
 
-        public BookCreate GetBook(int Id)
+        public BookCreate GetBook(string Id)
         {
             return _bookList.FirstOrDefault(a => a.BookID == Id);
         }
