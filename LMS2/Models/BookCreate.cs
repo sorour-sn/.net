@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,13 +11,20 @@ namespace LMS2.Models
 {
     public class BookCreate
     {
-        //[Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
+        [Key]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         [Display(Name = "ISBN")]
         public string BookID { get; set; }
 
-        [Required]
+        //[Required]
+        //public string Title { get; set; }
+
+        
         public string Image { get; set; }
+
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile ImageFile { get; set; }
 
         [Display(Name = "Book Name")]
         [Required]
@@ -27,7 +36,7 @@ namespace LMS2.Models
         [Required]
         public string Publisher { get; set; }
 
-        [Required]
+        //[Required]
         public string Description { get; set; }
 
         [Required]

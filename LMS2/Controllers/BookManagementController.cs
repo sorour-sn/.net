@@ -7,18 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LMS2.Models;
 using LMS2.Repository.Book;
-
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace LMS2.Controllers
 {
     public class BookManagementController : Controller
     {
         private readonly IBookRepository _BookRepository;
+        private readonly IWebHostEnvironment _hostEnvironment;
         private readonly DatabaseContext _context;
-        public BookManagementController(DatabaseContext context, IBookRepository bookRepository)
+        public BookManagementController(DatabaseContext context, IBookRepository bookRepository, IWebHostEnvironment _hostEnvironment)
         {
             _context = context;
             _BookRepository = bookRepository;
+            _hostEnvironment = _hostEnvironment;
         }
         public IActionResult ViewBooks()
         {
@@ -31,14 +34,34 @@ namespace LMS2.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(BookCreate addBook)
+        public async Task<IActionResult> AddAsync(BookCreate addBook)
         {
             if (ModelState.IsValid)
             {
-                _BookRepository.Add(addBook);
-                //return View("ViewBooks");
-                //return RedirectToAction("Profile", "Admins");
-                return RedirectToAction("ViewBooks", "BookManagement");
+                BookCreate newBook = new BookCreate();
+                newBook.BookID = addBook.BookID;
+                newBook.BookName = addBook.BookName;
+                newBook.Author = addBook.Author;
+                newBook.Publisher = addBook.Publisher;
+                newBook.Image = addBook.Image;    
+                string wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                //string wwwRootPath = _hostEnvironment.WebRootPath;
+                //if (string.IsNullOrWhiteSpace(wwwRootPath))
+                //{
+                //    wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                //}
+                string fileName = Path.GetFileNameWithoutExtension(addBook.ImageFile.FileName);
+                string extension = Path.GetExtension(addBook.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                newBook.Image = fileName;
+                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await addBook.ImageFile.CopyToAsync(fileStream);
+                }
+
+                _BookRepository.Add(newBook);              
+                return View("ViewBooks");
             }
             return View();
         }

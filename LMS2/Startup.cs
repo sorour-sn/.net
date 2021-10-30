@@ -46,6 +46,7 @@ namespace LMS2
             services.AddScoped<IMemberRepository, SQLMemberRepository>();
             services.AddScoped<IBookRepository, SQLBookRepository>();
             services.AddScoped<IBookIssueRepository, SQLBookIssueRepository>();
+            //services.AddInstance<BookCreate>(new BookCreate(_hostingEnvironment.WebRootPath));
             services.AddRazorPages();
         }
 

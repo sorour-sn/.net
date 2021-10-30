@@ -12,7 +12,7 @@ namespace LMS2.Models
     public class BookIssue
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         public int IssueId { get; set; }
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
