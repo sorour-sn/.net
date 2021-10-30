@@ -39,7 +39,7 @@ namespace LMS2
             });
             services.AddMemoryCache();
             services.AddControllersWithViews();
-            string ConnectionString = @"Server=DESKTOP-8PVEJSN\SQLEXPRESS; Database=LMS2db; Trusted_Connection=true; ConnectRetryCount=0";
+            string ConnectionString = @"Server=DESKTOP-BS3KGIJ; Database=LMS2db; Trusted_Connection=true; ConnectRetryCount=0";
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));
             services.AddScoped<IUserRepository, SQlUserRepository>();
             services.AddScoped<IAdminRepository, SQLAdminRepository>();
