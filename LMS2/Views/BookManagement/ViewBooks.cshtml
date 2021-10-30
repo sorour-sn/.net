@@ -30,8 +30,7 @@ user: @HttpContextAccessor.HttpContext.Session.GetString("_Username")
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @*<img src="~/Image/b1211852010.jpg" />*@
+                <td>               
                     <img src="~/Image/@item.Image" height="40" width="40" asp-append-version="true" />
                 </td>
                 <td>

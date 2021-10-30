@@ -32,13 +32,10 @@ namespace LMS2.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Issue(BookIssue IssuedBook)
-        {
-            if (ModelState.IsValid)
-            {
-                BookIssue newBookIssue =  _BookIssueRepository.Issue(IssuedBook.UserName, IssuedBook.BookID);
-            }
-            return View();
+        public IActionResult Issue(string IssuedBook)
+        { 
+            _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook);
+            return View("IssuedBook");  
         }
 
         public IActionResult IssuedBook()
