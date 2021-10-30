@@ -157,3 +157,26 @@ sl-button::part(label) {
     height: 100%;
     object-fit: cover;
 }
+
+
+.book-detail {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+}
+
+.book-detail__credits {
+    flex: 2;
+    text-align: justify;
+}
+
+.book-detail__image {
+    flex: 1;
+}
+
+.book-detail__image img {
+    max-height: 500px;
+    max-width: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
