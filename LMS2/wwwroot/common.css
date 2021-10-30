@@ -70,3 +70,10 @@
     align-items: baseline;
     border-bottom: 2px solid var(--textPrimary);
 }
+
+
+.action-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

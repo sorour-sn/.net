@@ -1,0 +1,40 @@
+@model LMS2.Models.BookCreate;
+@{
+    Layout = "_Layout";
+}
+
+<div class="header">
+    <h2>Book Detail</h2>
+    <p>Sorour Eskandari</p>
+</div>
+
+<div class="book-detail">
+    <div class="book-detail__image">
+        <img class="shadow" src="@Model.Image" onerror="this.src='/assets/imagePlaceholder.png'" />
+    </div>
+    <div class="book-detail__credits">
+        <h4>@Model.BookName</h4>
+        <h5>@Model.Author</h5>
+        <h5>@Model.Publisher</h5>
+        <p>
+            @Model.Description
+        </p>
+    </div>
+    <div></div>
+</div>
+<div class="action-bar">
+    <form>
+        <input type="hidden" vlaue=@ViewData["_Username"]>
+        <input type="hidden" value="@Model.BookID">
+        <input type="submit" class="btn btn-outline-warning btn-lg" value="Edit">
+    </form>
+    <form>
+        <input type="hidden" vlaue=@ViewData["_Username"]>
+        <input type="hidden" value="@Model.BookID">
+        <input type="submit" class="btn btn-success btn-lg" value="Issue">
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
