@@ -1,12 +1,10 @@
 ﻿@model LMS2.Models.BookCreate
 @{
-    Layout = "_Layout"; ViewData["Title"] = "Add";
+    Layout = "_Layout";
+    ViewData["Title"] = "Add Book";
 }
 
-<div class="header">
-  <h2>Add Book</h2>
-  <p>Sorour Eskandari</p>
-</div>
+@await Html.PartialAsync("_HeaderPartial", "Sorour Eskandari")
 
 <div class="center">
   <div class="form">

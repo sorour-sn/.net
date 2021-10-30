@@ -25,7 +25,7 @@ sl-button::part(label) {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--bs-indigo);
+    background-color: #3a2243b5;
     border-radius: 10px;
     /* width: 10px; */
 }
@@ -120,6 +120,11 @@ sl-button::part(label) {
     padding: 15px;
     border-radius: 15px;
     gap: 10px;
+    transition: all 200ms;
+}
+
+.book-item:hover {
+    box-shadow: 0 0 5px var(--shadowgrey) !important;
 }
 
 .book-item img {
@@ -179,4 +184,57 @@ sl-button::part(label) {
     max-width: 400px;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.profile-header {
+
+}
+
+.profile-header__bulb {
+    position: relative;
+}
+
+.profile-header__bulb object {
+    position: absolute;
+    top: 0;
+}
+
+.profile-header__data {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.corner-pattern {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.profile-actions {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-actions__button {
+    width: 300px;
+    height: 300px;
+    border-radius: 45px;
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-actions__button:hover {
+    box-shadow: none !important;
+    transition: all 200ms;
 }
