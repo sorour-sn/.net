@@ -170,3 +170,6 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Signup
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Users\Signup.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\Edit.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Issuing\IssuedBook.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\BookDetail.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_BookPartial.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_HeaderPartial.cshtml.g.cs

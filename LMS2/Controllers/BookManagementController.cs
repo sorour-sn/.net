@@ -43,6 +43,7 @@ namespace LMS2.Controllers
                 newBook.BookName = addBook.BookName;
                 newBook.Author = addBook.Author;
                 newBook.Publisher = addBook.Publisher;
+                newBook.Description = addBook.Description;
                 newBook.Image = addBook.Image;    
                 string wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
                 string fileName = Path.GetFileNameWithoutExtension(addBook.ImageFile.FileName);
@@ -60,5 +61,18 @@ namespace LMS2.Controllers
             }
             return View();
         }
+
+        public IActionResult BookDetail(string Id)
+        {
+            BookCreate bookDetail = _BookRepository.GetBook(Id);
+            return View(bookDetail);
+        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult BookDetail(string Id)
+        //{
+        //    BookCreate bookDetail =  _BookRepository.GetBook(Id); 
+        //    return View(bookDetail);
+        //}
     }
 }

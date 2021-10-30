@@ -1,17 +1,20 @@
-@model LMS2.Models.BookCreate;
+@model LMS2.Models.BookCreate
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
     Layout = "_Layout";
 }
 
 <div class="header">
     <h2>Book Detail</h2>
-    <p>Sorour Eskandari</p>
+    <p>@HttpContextAccessor.HttpContext.Session.GetString("_Username")</p>
 </div>
 
 <div class="book-detail">
     <div class="book-detail__image">
-        <img class="shadow" src="@Model.Image" onerror="this.src='/assets/imagePlaceholder.png'" />
-    </div>
+        
+        <img class="shadow" src="~/Image/@Model.Image" />
+</div>
     <div class="book-detail__credits">
         <h4>@Model.BookName</h4>
         <h5>@Model.Author</h5>
@@ -34,6 +37,7 @@
         <input type="submit" class="btn btn-success btn-lg" value="Issue">
     </form>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

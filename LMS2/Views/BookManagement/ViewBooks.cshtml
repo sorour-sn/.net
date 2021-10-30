@@ -1,10 +1,12 @@
 ﻿@*book*@
 @model IEnumerable<LMS2.Models.BookCreate>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
     ViewData["Title"] = "Index";
 }
-
+user: @HttpContextAccessor.HttpContext.Session.GetString("_Username")
 <h1>Index</h1>
 
 <p>
@@ -27,24 +29,25 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @*<img src="~/Image/b1211852010.jpg" />*@
-                <img src="~/Image/@item.Image" height="40" width="40" asp-append-version="true" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookID)
-                @Html.DisplayFor(modelItem => item.BookName)
-                @Html.DisplayFor(modelItem => item.Image)
-                @Html.DisplayFor(modelItem => item.Author)
-                @Html.DisplayFor(modelItem => item.Publisher)
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a>
-                <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @*<img src="~/Image/b1211852010.jpg" />*@
+                    <img src="~/Image/@item.Image" height="40" width="40" asp-append-version="true" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookID)
+                    @Html.DisplayFor(modelItem => item.BookName)
+                    @Html.DisplayFor(modelItem => item.Image)
+                    @Html.DisplayFor(modelItem => item.Author)
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="BookDetail" asp-route-id="@item.BookID">Detail</a>
+                    <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
+
 </table>

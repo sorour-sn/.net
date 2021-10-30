@@ -8,6 +8,7 @@ namespace LMS2.Models
     public class MemberRepository : IMemberRepository
     {
         private List<MemberLogin> _memberLoginList;
+        private List<UserRegistration> _userList;
         public MemberLogin Add(UserRegistration addMember)
         {
             MemberLogin member = new MemberLogin();
@@ -42,13 +43,16 @@ namespace LMS2.Models
         public MemberLogin Update(MemberLogin updateMember)
         {
             MemberLogin memberChanges = _memberLoginList.FirstOrDefault(a => a.UserName == updateMember.UserName);
-            if (memberChanges != null)
-            {
+            //UserRegistration userChanges = _userList.FirstOrDefault(a => a.UserName == updateMember.UserName);
+            ////if (memberChanges != null)
+            ////{
+            //userChanges.FirstName = memberChanges.FirstName = updateMember.FirstName;
+            //userChanges.LastName = updateMember.LastName;
                 memberChanges.FirstName = updateMember.FirstName;
                 memberChanges.UserName = updateMember.UserName;
                 memberChanges.Password = updateMember.Password;
 
-            }
+            //}
             return memberChanges;
         }
 

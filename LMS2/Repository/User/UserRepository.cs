@@ -48,7 +48,7 @@ namespace LMS2.Models
                 userChanges.Country = updateUser.Country;
                 userChanges.DoB = updateUser.DoB;
                 userChanges.UserName = updateUser.UserName;
-                userChanges.Password = updateUser.Password;
+                userChanges.Password = userChanges.ConfirmPassword = updateUser.Password;
             }
             return userChanges;
         }

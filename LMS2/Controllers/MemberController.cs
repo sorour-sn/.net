@@ -11,7 +11,6 @@ using Newtonsoft.Json;
 
 namespace LMS2.Controllers
 {
-    //[Route("member")]
     public class MemberController : Controller
     {
         private readonly IMemberRepository _MemberRepository;
@@ -86,20 +85,23 @@ namespace LMS2.Controllers
             return View();
         }
 
-        public IActionResult Edit()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(MemberLogin updateMember)
-        {
+        //public IActionResult Edit()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Edit(UserRegistration updateMember)
+        //{
 
-            if (ModelState.IsValid)
-            {
-                _MemberRepository.Update(updateMember);
-            }
-            return View("Profile");
-        }
+        //    if (ModelState.IsValid)
+        //    {
+        //        updateMember.isAdmin = false;
+        //        updateMember.UserName = HttpContext.Session.GetString("_Username");
+        //        UserRegistration userUpdate = _UserRepository.Update(updateMember);
+        //        //_MemberRepository.Update(updateMember);
+        //    }
+        //    return View("Profile");
+        //}
     }
 }
