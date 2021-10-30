@@ -132,3 +132,28 @@ sl-button::part(label) {
     display: grid;
     gap: 15px;
 }
+
+
+.add-book {
+    min-width: 600px;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.add-book .book-image {
+    border: 1px solid var(--borderColor);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.book-image {
+    height: 278px;
+    /* object-fit: cover; */
+}
+
+.book-image img {
+    height: 100%;
+    object-fit: cover;
+}

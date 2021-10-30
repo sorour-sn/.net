@@ -1,66 +1,109 @@
 ﻿@model LMS2.Models.BookCreate
-
 @{
-    ViewData["Title"] = "Add";
+    Layout = "_Layout"; ViewData["Title"] = "Add";
 }
 
-<h1>Add Book</h1>
-
-<h4>Admin</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Add" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="BookID" class="control-label"></label>
-                <input asp-for="BookID" class="form-control" />
-                <span asp-validation-for="BookID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookName" class="control-label"></label>
-                <input asp-for="BookName" class="form-control" />
-                <span asp-validation-for="BookName" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="ImageFile" class="control-label"></label>
-                <input asp-for="ImageFile" accept="image/*" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                <label asp-for="ImageFile" class="control-label"></label>
-                <input asp-for="ImageFile" accept="image/*" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="Author" class="control-label"></label>
-                <input asp-for="Author" class="form-control" />
-                <span asp-validation-for="Author" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Publisher" class="control-label"></label>
-                <input asp-for="Publisher" class="form-control" />
-                <span asp-validation-for="Publisher" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="header">
+  <h2>Add Book</h2>
+  <p>Sorour Eskandari</p>
 </div>
 
+<div class="center">
+  <div class="form">
+    <form asp-action="Add" class="form__container add-book shadow" enctype="multipart/form-data">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="book-image">
+        <img
+          id="book-image"
+          src="/assets/ImagePlaceholder.png"
+          onerror="this.src='/assets/ImagePlaceholder.png'"
+          draggable="false"
+        />
+      </div>
+      <div class="form" style="flex: 1">
+        <div class="form-group">
+          <input placeholder="ISBN" asp-for="BookID" class="form-control" />
+          <span asp-validation-for="BookID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <input placeholder="Name" asp-for="BookName" class="form-control" />
+          <span asp-validation-for="BookName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="ImageFile" type="file" accept="image/*" class="form-control" id="bookImage" onchange="onImageChange(event)">
+          <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <input placeholder="Author" asp-for="Author" class="form-control" />
+          <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <input
+            placeholder="Publisher"
+            asp-for="Publisher"
+            class="form-control"
+          />
+          <span asp-validation-for="Publisher" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <input
+            placeholder="Description"
+            asp-for="Description"
+            class="form-control"
+          />
+          <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-success" value="Add" />
+    </form>
+  </div>
+</div>
+@*
+<div class="row">
+  <div class="col-md-4">
+    <form asp-action="Add" enctype="multipart/form-data">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="form-group">
+        <label asp-for="BookID" class="control-label"></label>
+        <input asp-for="BookID" class="form-control" />
+        <span asp-validation-for="BookID" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="BookName" class="control-label"></label>
+        <input asp-for="BookName" class="form-control" />
+        <span asp-validation-for="BookName" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="ImageFile" class="control-label"></label>
+        <input asp-for="ImageFile" accept="image/*" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Author" class="control-label"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Publisher" class="control-label"></label>
+        <input asp-for="Publisher" class="form-control" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-primary" />
+      </div>
+    </form>
+  </div>
+  *@ @*
+</div>
+*@
+
 <div>
-    <a asp-action="ViewBooks">Back to List</a>
+  <a asp-action="ViewBooks">Back to List</a>
 </div>
 
 @section Scripts {
