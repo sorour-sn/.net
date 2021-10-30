@@ -34,5 +34,10 @@ namespace LMS2.Models
             context.SaveChanges();
             return issueBook;
         }
+
+        public IEnumerable<BookIssue> GetAllIssuedBooks(string memberUsername)
+        {
+            return context.BookIssues.Where(x => x.UserName == memberUsername);    //NO idea is it correct or not yet!   
+        }
     }
 }

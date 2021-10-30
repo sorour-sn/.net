@@ -8,5 +8,6 @@ namespace LMS2.Models
     public interface IBookIssueRepository 
     {
         BookIssue Issue(string userName, string bookId);
+        IEnumerable<BookIssue> GetAllIssuedBooks(string memberUsername);
     }
 }

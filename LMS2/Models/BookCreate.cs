@@ -36,7 +36,7 @@ namespace LMS2.Models
         [Required]
         public string Publisher { get; set; }
 
-        //[Required]
+        [Required]
         public string Description { get; set; }
 
         [Required]

@@ -17,11 +17,11 @@ namespace LMS2.Controllers
         private readonly IBookRepository _BookRepository;
         private readonly IWebHostEnvironment _hostEnvironment;
         private readonly DatabaseContext _context;
-        public BookManagementController(DatabaseContext context, IBookRepository bookRepository, IWebHostEnvironment _hostEnvironment)
+        public BookManagementController(DatabaseContext context, IBookRepository bookRepository, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             _BookRepository = bookRepository;
-            _hostEnvironment = _hostEnvironment;
+            _hostEnvironment = hostEnvironment;
         }
         public IActionResult ViewBooks()
         {
@@ -45,11 +45,6 @@ namespace LMS2.Controllers
                 newBook.Publisher = addBook.Publisher;
                 newBook.Image = addBook.Image;    
                 string wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                //string wwwRootPath = _hostEnvironment.WebRootPath;
-                //if (string.IsNullOrWhiteSpace(wwwRootPath))
-                //{
-                //    wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                //}
                 string fileName = Path.GetFileNameWithoutExtension(addBook.ImageFile.FileName);
                 string extension = Path.GetExtension(addBook.ImageFile.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;

@@ -32,5 +32,10 @@ namespace LMS2.Models
             }
             return bookIssue;
         }
+
+        public IEnumerable<BookIssue> GetAllIssuedBooks(string memberUsername)
+        {
+            return _bookIssuelist.Where(x => x.UserName == memberUsername);    //NO idea is it correct or not yet!   
+        }
     }
 }
