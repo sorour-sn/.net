@@ -1,5 +1,7 @@
 
+@model string
+
 <div class="header">
     <h2>@ViewData["Title"]</h2>
-    <a asp-action="Profile">@ViewData["_Username"]</a>
+    <a asp-action="Profile">@Model</a>
 </div>

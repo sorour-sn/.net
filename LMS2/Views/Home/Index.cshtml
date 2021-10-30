@@ -1,8 +1,12 @@
 ﻿@*home*@
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
     Layout = "_Layout";
 }
     <h1>Hello!</h1>
+    @ViewData["_Username"];
+    @HttpContextAccessor.HttpContext.Session.GetString("_Username")
     <nav class="navbar navbar-default">
         <nav class="navbar navbar-expand-lg navbar-light">
             @*<a class="navbar-brand" href="#">
