@@ -3,6 +3,7 @@
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
     Layout = "_Layout";
+    var username = @HttpContextAccessor.HttpContext.Session.GetString("_Username");
 }
 
 <div class="header">
@@ -27,13 +28,13 @@
 </div>
 <div class="action-bar">
     <form>
-        <input type="hidden" vlaue=@ViewData["_Username"]>
+        <input type="hidden" vlaue="@username">
         <input type="hidden" value="@Model.BookID">
         <input type="submit" class="btn btn-outline-warning btn-lg" value="Edit">
     </form>
-    <form>
-        <input type="hidden" vlaue=@ViewData["_Username"]>
-        <input type="hidden" value="@Model.BookID">
+    <form asp-action="Issue" >
+        @* <input type="hidden" asp-for="َUserName" vlaue="@username"> *@
+        <input type="hidden" asp-for="BookID" value="@Model.BookID">
         <input type="submit" class="btn btn-success btn-lg" value="Issue">
     </form>
 </div>

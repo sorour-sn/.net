@@ -9,6 +9,7 @@ using LMS2.Models;
 using LMS2.Repository.Book;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace LMS2.Controllers
 {
@@ -17,11 +18,14 @@ namespace LMS2.Controllers
         private readonly IBookRepository _BookRepository;
         private readonly IWebHostEnvironment _hostEnvironment;
         private readonly DatabaseContext _context;
-        public BookManagementController(DatabaseContext context, IBookRepository bookRepository, IWebHostEnvironment hostEnvironment)
+        private readonly IBookIssueRepository _BookIssueRepository;
+
+        public BookManagementController(DatabaseContext context, IBookRepository bookRepository, IBookIssueRepository bookIssueRepository,IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             _BookRepository = bookRepository;
             _hostEnvironment = hostEnvironment;
+            _BookIssueRepository = bookIssueRepository;
         }
         public IActionResult ViewBooks()
         {
@@ -60,6 +64,14 @@ namespace LMS2.Controllers
                 return View("ViewBooks");
             }
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Issue(string IssuedBook)
+        { 
+            _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook);
+            return View("IssuedBook");  
         }
 
         public IActionResult BookDetail(string Id)
