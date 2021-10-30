@@ -1,4 +1,4 @@
-﻿@model LMS2.Models.MemberLogin
+@model LMS2.Models.MemberLogin
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
@@ -8,59 +8,36 @@
     ViewData["Title"] = "Profile";
 }
 
-<h1>Profile</h1>
-@* Username : @LMS2.Models.MemberLogin.SessionKeyName *@
-@*Username : @HttpContext.Current.Session["_Username"].ToString();*@
-username : @HttpContextAccessor.HttpContext.Session.GetString("_Username")
-
-<div>
-    <h4>MemberLogin</h4>
-    @*@Model.SessionInfo_Username.ToString();*@
-    title: @ViewData["Title"]
-    <br />
-    test string: @ViewData["test"]
-    <br />
-    user: @ViewData["Username"]
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.isAdmin)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.isAdmin)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SuccessError)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SuccessError)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Access)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Access)
-        </dd>
-    </dl>
+<div class="profile-header">
+    <div class="center profile-header__bulb">
+        <object type="image/svg+xml" data="/assets/Curve.svg"></object>
+        <div class="profile-header__data">
+            <img src="/assets/Profile.png" />
+            <strong>FirstName</strong>
+            <p>@HttpContextAccessor.HttpContext.Session.GetString("_Username")</p>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit">Edit Profile</a>
-    <a asp-action="Index">Back to List</a>
-    @Html.ActionLink("View List of Books", "ViewBooks", "BookManagement")
-    @Html.ActionLink("View Issued Books", "IssuedBook", "Issuing")
+<div class="profile-actions">
+    <a href="#">
+        <div class="profile-actions__button shadow purple">
+            <object type="image/svg+xml" data="/assets/Bookmark.svg"></object>
+            <p class="big-text">Issued Books</p>
+        </div>
+    </a>
+    <a href="#2">
+        <div class="profile-actions__button shadow green">
+            <object type="image/svg+xml" data="/assets/User.svg"></object>
+            <p class="big-text">Users List</p>
+        </div>
+    </a>
+    <a asp-action="Edit">
+        <div class="profile-actions__button shadow yellow">
+            <object type="image/svg+xml" data="/assets/Edit.svg"></object>
+            <p class="big-text">Edit Profile</p>
+        </div>
+    </a>
 </div>
-@*Username: @HttpContext.Session.GetString(MemberLogin.SessionKeyName)*@
-
-
+<div class="corner-pattern">
+    <img src="/assets/corner-pattern.png" draggable="false" />
+</div>
