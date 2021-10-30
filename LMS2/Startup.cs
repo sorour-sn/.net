@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Design;
 using LMS2.Models;
 using LMS2.Repository.Book;
-
+using Microsoft.AspNetCore.Http;
 
 namespace LMS2
 {
@@ -46,7 +46,7 @@ namespace LMS2
             services.AddScoped<IMemberRepository, SQLMemberRepository>();
             services.AddScoped<IBookRepository, SQLBookRepository>();
             services.AddScoped<IBookIssueRepository, SQLBookIssueRepository>();
-            //services.AddInstance<BookCreate>(new BookCreate(_hostingEnvironment.WebRootPath));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddRazorPages();
         }
 

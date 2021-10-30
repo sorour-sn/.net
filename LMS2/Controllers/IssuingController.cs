@@ -40,5 +40,12 @@ namespace LMS2.Controllers
             }
             return View();
         }
+
+        public IActionResult IssuedBook()
+        {
+            var username = HttpContext.Session.GetString("_Username");
+            var MemberIssuedBook = _BookIssueRepository.GetAllIssuedBooks(username);
+            return View(MemberIssuedBook);
+        }
     }
 }

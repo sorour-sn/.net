@@ -83,9 +83,23 @@ namespace LMS2.Controllers
 
         public ActionResult Profile()
         {
-            //MemberLogin loggedMember = JsonConvert.DeserializeObject<MemberLogin>(HttpContext.Session.GetString("MemberSession"));
-            var MemberSession = JsonConvert.DeserializeObject<MemberLogin>(HttpContext.Session.GetString("MemberSession"));
-            return View(MemberSession);
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(MemberLogin updateMember)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _MemberRepository.Update(updateMember);
+            }
+            return View("Profile");
         }
     }
 }

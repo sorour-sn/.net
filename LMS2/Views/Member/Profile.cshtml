@@ -1,5 +1,7 @@
-﻿@model LMS2.Models.MemberLogin; 
-@using Microsoft.AspNetCore.Http;
+﻿@model LMS2.Models.MemberLogin
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 
 @{
     ViewData["Title"] = "Profile";
@@ -8,12 +10,13 @@
 <h1>Profile</h1>
 @* Username : @LMS2.Models.MemberLogin.SessionKeyName *@
 @*Username : @HttpContext.Current.Session["_Username"].ToString();*@
+username : @HttpContextAccessor.HttpContext.Session.GetString("_Username")
 
 <div>
     <h4>MemberLogin</h4>
     @*@Model.SessionInfo_Username.ToString();*@
-    title: @ViewData["Title"] 
-    <br /> 
+    title: @ViewData["Title"]
+    <br />
     test string: @ViewData["test"]
     <br />
     user: @ViewData["Username"]
@@ -52,8 +55,10 @@
     </dl>
 </div>
 <div>
-    @* <a asp-action="Edit" asp-route-id="@ViewData">Edit</a> *@
+    <a asp-action="Edit">Edit Profile</a>
     <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("View List of Books", "ViewBooks", "BookManagement")
+    @Html.ActionLink("View Issued Books", "IssuedBook", "Issuing")
 </div>
 @*Username: @HttpContext.Session.GetString(MemberLogin.SessionKeyName)*@
 
