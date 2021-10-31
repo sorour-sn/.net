@@ -14,7 +14,7 @@
 <div class="book-detail">
     <div class="book-detail__image">
         
-        <img class="shadow" src="~/Image/@Model.Image" />
+        <img class="shadow" src="~/Image/@Model.Image" onerror="this.src='/assets/ImagePlaceholder.png'" />
 </div>
     <div class="book-detail__credits">
         <h4>@Model.BookName</h4>

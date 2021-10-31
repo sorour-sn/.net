@@ -1,0 +1,44 @@
+@model LMS2.Models.UserRegistration;
+
+@{
+    Layout = "_Layout";
+}
+
+@await Html.PartialAsync("_HeaderPartial", @Model.UserName)
+
+
+<div class="center">
+    <div class="profile-data shadow">
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/User-40px.svg"></object>
+            <div>
+                <strong>@Model.FirstName @Model.LastName</strong>
+                <p>@Model.UserName</p>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Call.svg"></object>
+            <div>
+                <strong>@Model.ContactNumber</strong>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Message.svg"></object>
+            <div>
+                <strong>@Model.Email</strong>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Location.svg"></object>
+            <div>
+                <strong>@Model.Country - @Model.City - @Model.Address</strong>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Calendar.svg"></object>
+            <div>
+                <strong>@Model.DoB</strong>
+            </div>
+        </div>
+    </div>
+</div>
