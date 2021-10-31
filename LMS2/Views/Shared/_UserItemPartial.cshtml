@@ -1,0 +1,14 @@
+@model LMS2.Models.UserRegistration;
+
+<div class="issue-item @ViewData["class"]">
+    <div>
+        <p>@Model.FirstName @Model.LastName</p>
+        <p>@Model.UserName</p>
+        <p>@Model.Email</p>
+        <p>@Model.DoB</p>
+    </div>
+    <div class="text-danger">
+        isAdmin: 
+        <input readonly type="checkbox" @(@Model.isAdmin ? "checked" : "") onclick="return false;" />
+    </div>
+</div>

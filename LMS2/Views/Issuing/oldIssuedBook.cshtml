@@ -1,0 +1,48 @@
+﻿@model IEnumerable<LMS2.Models.BookIssue>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Index";
+}
+
+user: @HttpContextAccessor.HttpContext.Session.GetString("_Username")
+<h1>Issued Books</h1>
+
+@*<p>
+        <a asp-action="Add">Add New Book</a>
+    </p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.BookID)*@
+                @Html.DisplayNameFor(model => model.BookName)
+                @Html.DisplayNameFor(model => model.Issue_Date)
+                @Html.DisplayNameFor(model => model.Due_Date)
+                @*@Html.DisplayNameFor(model => model.Publisher)
+                    @Html.DisplayNameFor(model => model.Description)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!--<td>-->
+                @*<img src="~/Image/b1211852010.jpg" />*@
+                <!--<img src="~/Image/" height="40" width="40" asp-append-version="true" />
+                </td>-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                    @Html.DisplayFor(modelItem => item.Issue_Date)
+                    @Html.DisplayFor(modelItem => item.Due_Date)
+                    @*@Html.DisplayFor(modelItem => item.Author)
+                        @Html.DisplayFor(modelItem => item.Publisher)
+                        @Html.DisplayFor(modelItem => item.Description)*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

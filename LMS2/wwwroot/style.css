@@ -238,3 +238,41 @@ sl-button::part(label) {
     box-shadow: none !important;
     transition: all 200ms;
 }
+
+.list-container {
+    width: 70%;
+    height: 70%;
+    border-radius: 15px;
+    overflow: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.issue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.issue-item>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.issue-item p {
+    margin-bottom: 0;
+}
+
+.issue-item.odd {
+    background-color: var(--oddItem);
+}
+
+.issue-item.even {
+    background-color: var(--evenItem);
+}
