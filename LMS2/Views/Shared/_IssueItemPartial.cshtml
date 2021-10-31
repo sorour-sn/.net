@@ -1,0 +1,18 @@
+@model LMS2.Models.BookIssue
+
+<div class="issue-item @ViewData["class"]">
+    <div>
+        <p>@Model.BookID</p>
+        <p>@Model.BookName</p>
+        <p>@Model.UserName</p>
+    </div>
+    <div class="text-danger">
+        <p>
+            @Model.Issue_Date 
+        </p>
+        -
+        <p>
+            @Model.Due_Date  
+        </p>
+    </div>
+</div>

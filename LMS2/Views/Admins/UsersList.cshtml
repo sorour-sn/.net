@@ -1,9 +1,10 @@
-@model IEnumerable<LMS2.Models.BookIssue>
-@using Microsoft.AspNetCore.Http
+@model IEnumerable<LMS2.Models.UserRegistration>;
+@using Microsoft.AspNetCore.Http;
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Issued Books";
+    ViewData["Title"] = "Users List";
 }
 
 @await Html.PartialAsync("_HeaderPartial", @HttpContextAccessor.HttpContext.Session.GetString("_Username"))
@@ -13,7 +14,7 @@
         @{
             var i = 1;
             foreach(var item in Model) {
-                @await Html.PartialAsync("_IssueItemPartial", item, new ViewDataDictionary(ViewData){
+                @await Html.PartialAsync("_UserItemPartial", item, new ViewDataDictionary(ViewData){
                     {"class", i % 2 == 0 ? "even" : "odd"}
                 })
             }

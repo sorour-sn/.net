@@ -2,11 +2,12 @@
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
-    ViewData["Title"] = "Add";
+    Layout = "_Layout";
+    ViewData["Title"] = "Issue Book";
 }
 
+@await Html.PartialAsync("_HeaderPartial", @HttpContextAccessor.HttpContext.Session.GetString("_Username"))
 
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Issue">
