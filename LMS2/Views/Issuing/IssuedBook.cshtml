@@ -16,6 +16,7 @@
                 @await Html.PartialAsync("_IssueItemPartial", item, new ViewDataDictionary(ViewData){
                     {"class", i % 2 == 0 ? "even" : "odd"}
                 })
+                i = i+1;
             }
         }
     </div>

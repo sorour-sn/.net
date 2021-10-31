@@ -43,7 +43,8 @@
 .form__end {
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .background-pattern {

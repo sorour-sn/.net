@@ -1,7 +1,20 @@
-
 @model string
 
 <div class="header">
     <h2>@ViewData["Title"]</h2>
-    <a asp-action="Profile">@Model</a>
+    @{
+        if (@Model == null)
+        {
+            <p>
+                <a asp-action="Login" asp-controller="Member">Login</a>
+                /
+                <a asp-action="Signup" asp-controller="Users">Signup</a>
+            </p>
+        }
+        else
+        {
+            <a asp-action="Profile" asp-controller="Member">@Model</a>
+        }
+    }
+
 </div>

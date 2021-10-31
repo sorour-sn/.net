@@ -1,10 +1,13 @@
 ﻿@model LMS2.Models.BookCreate
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Add Book";
 }
 
-@await Html.PartialAsync("_HeaderPartial", "Sorour Eskandari")
+@await Html.PartialAsync("_HeaderPartial", @HttpContextAccessor.HttpContext.Session.GetString("_Username"))
 
 <div class="center">
   <div class="form">

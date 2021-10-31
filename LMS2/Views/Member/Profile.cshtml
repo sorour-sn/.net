@@ -6,37 +6,44 @@
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Profile";
+    var username = @HttpContextAccessor.HttpContext.Session.GetString("_Username");
 }
 
 <div class="profile-header">
     <div class="center profile-header__bulb">
         <object type="image/svg+xml" data="/assets/Curve.svg"></object>
         <div class="profile-header__data">
-            <img src="/assets/Profile.png" />
+            <img src="/assets/Profile.png" draggable="false" />
             <strong>FirstName</strong>
-            <p>@HttpContextAccessor.HttpContext.Session.GetString("_Username")</p>
+            <p>@username</p>
         </div>
     </div>
 </div>
 <div class="profile-actions">
-    <a href="#">
+    <a asp-action="IssuedBook" asp-controller="Issuing">
         <div class="profile-actions__button shadow purple">
             <object type="image/svg+xml" data="/assets/Bookmark.svg"></object>
             <p class="big-text">Issued Books</p>
         </div>
     </a>
-    <a href="#2">
+    <a href="#">
         <div class="profile-actions__button shadow green">
             <object type="image/svg+xml" data="/assets/User.svg"></object>
             <p class="big-text">Users List</p>
         </div>
     </a>
-    <a asp-action="Edit">
+    <a asp-action="Add" asp-controller="BookManagement">
+        <div class="profile-actions__button shadow yellow">
+            <object type="image/svg+xml" data="/assets/Add.svg"></object>
+            <p class="big-text">Add Book</p>
+        </div>
+    </a>
+    @* <a asp-action="Edit">
         <div class="profile-actions__button shadow yellow">
             <object type="image/svg+xml" data="/assets/Edit.svg"></object>
             <p class="big-text">Edit Profile</p>
         </div>
-    </a>
+    </a> *@
 </div>
 <div class="corner-pattern">
     <img src="/assets/corner-pattern.png" draggable="false" />

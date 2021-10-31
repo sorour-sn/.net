@@ -1,77 +1,78 @@
-
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @{
-    Layout = "_Layout";
+  Layout = "_Layout";
+  var username = HttpContextAccessor.HttpContext.Session.GetString("_Username");
 }
 
 <div class="content">
-    <div class="content__header">
-      <div class="content__header-top">
-        <a href="/Login">Login</a>
-        /
-        <a href="/Signup">Signup</a>
-      </div>
-      <div class="content__header-poster"></div>
+  <div class="content__header">
+    <div class="content__header-top">
+      @{
+        if (@username == null)
+        {
+          <p>
+            <a asp-action="Login" asp-controller="Member">Login</a>
+            /
+            <a asp-action="Signup" asp-controller="Users">Signup</a>
+          </p>
+        }
+        else
+        {
+          <a asp-action="Profile" asp-controller="Member">@username</a>
+        }
+      }
     </div>
-    <div class="content__section">
-      <h2>Latest Books</h2>
-      <div class="row-items">
-        <a href="Book">
+    <div class="content__header-poster"></div>
+  </div>
+  <div class="content__section">
+    <h2>Latest Books</h2>
+    <div class="row-items">
+      <a href="Book">
         <div class="shadow book-item">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg"
-          />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg" />
           <div class="description">
             <strong>Chain of Iron</strong>
             <p>Cassandra Clare</p>
           </div>
         </div>
-        </a>
-        <a href="Book">
+      </a>
+      <a href="Book">
         <div class="shadow book-item">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg"
-          />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg" />
           <div class="description">
             <strong>Chain of Iron</strong>
             <p>Cassandra Clare</p>
           </div>
         </div>
-        </a>
-        <a href="Book">
+      </a>
+      <a href="Book">
         <div class="shadow book-item">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg"
-          />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg" />
           <div class="description">
             <strong>Chain of Iron</strong>
             <p>Cassandra Clare</p>
           </div>
         </div>
-        </a>
-        <a href="Book">
+      </a>
+      <a href="Book">
         <div class="shadow book-item">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg"
-          />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg" />
           <div class="description">
             <strong>Chain of Iron</strong>
             <p>Cassandra Clare</p>
           </div>
         </div>
-        </a>
-        <a href="Book">
+      </a>
+      <a href="Book">
         <div class="shadow book-item">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg"
-          />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg" />
           <div class="description">
             <strong>Chain of Iron</strong>
             <p>Cassandra Clare</p>
           </div>
         </div>
-        </a>
-      </div>
+      </a>
     </div>
   </div>
+</div>
