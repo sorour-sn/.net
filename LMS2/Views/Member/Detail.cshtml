@@ -1,21 +1,44 @@
-﻿@model LMS2.Models.UserRegistration
-@using Microsoft.AspNetCore.Http
-@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model LMS2.Models.UserRegistration;
+
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Detail";
 }
 
-<h1>Detail</h1>
+@await Html.PartialAsync("_HeaderPartial", @Model.UserName)
 
-user:  @HttpContextAccessor.HttpContext.Session.GetString("_Username")
-<hr />
 
-first name : @Model.FirstName
-last name : @Model.LastName
-Email : @Model.Email
-date of birth : @Model.DoB
-country : @Model.Country
-city : @Model.City
-contact number : @Model.ContactNumber
-address : @Model.Address
+<div class="center">
+    <div class="profile-data shadow">
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/User-40px.svg"></object>
+            <div>
+                <strong>@Model.FirstName @Model.LastName</strong>
+                <p>@Model.UserName</p>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Call.svg"></object>
+            <div>
+                <strong>@Model.ContactNumber</strong>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Message.svg"></object>
+            <div>
+                <strong>@Model.Email</strong>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Location.svg"></object>
+            <div>
+                <strong>@Model.Country - @Model.City - @Model.Address</strong>
+            </div>
+        </div>
+        <div class="profile-data__item">
+            <object type="image/svg+xml" data="/assets/Calendar.svg"></object>
+            <div>
+                <strong>@Model.DoB</strong>
+            </div>
+        </div>
+    </div>
+</div>

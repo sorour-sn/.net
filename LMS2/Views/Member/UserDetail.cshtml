@@ -1,0 +1,21 @@
+﻿@model LMS2.Models.UserRegistration
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+
+user:  @HttpContextAccessor.HttpContext.Session.GetString("_Username")
+<hr />
+
+first name : @Model.FirstName
+last name : @Model.LastName
+Email : @Model.Email
+date of birth : @Model.DoB
+country : @Model.Country
+city : @Model.City
+contact number : @Model.ContactNumber
+address : @Model.Address
