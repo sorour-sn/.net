@@ -14,6 +14,7 @@ namespace LMS2.Controllers
     {
         private readonly IUserRepository _userRegistrationRepository;
         private readonly IAdminRepository _AdminRepository;
+        
         private readonly DatabaseContext _context;
 
         public AdminsController(DatabaseContext context, IAdminRepository adminRepository, IUserRepository userRegistrationRepository)
@@ -42,18 +43,30 @@ namespace LMS2.Controllers
                 AdminLogin AdminModel = _AdminRepository.GetAdmin(admin.UserName); ////add checking password!
                 if( AdminModel != null)
                 {
-                    //ISession.Set(AdminModel.FirstName, Byte[32]);
+                    var Status = "Admin";
+                    HttpContext.Session.SetString("_Status", Status);
+                    HttpContext.Session.SetString("_Username", AdminModel.UserName);
                     return View("Profile");                    
                 }
                 UserRegistration AdminUser = _userRegistrationRepository.GetUser(admin.UserName);
                 if (AdminUser != null)
                 {
                     _AdminRepository.Add(admin);
+                    var Status = "Admin";
+                    HttpContext.Session.SetString("_Status", Status);
+                    HttpContext.Session.SetString("_Username", AdminUser.UserName);
                     return View("Profile");
                 }
             }
             ViewBag.Error = "Admin Not Found!";
             return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("_Username");
+            HttpContext.Session.Remove("_Status");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Profile()
@@ -65,6 +78,12 @@ namespace LMS2.Controllers
         {
             var model = _userRegistrationRepository.GetAllUsers();
             return View(model);
+        }
+
+        public IActionResult UsersList()
+        {
+            var allUsers = _userRegistrationRepository.GetAllUsers();
+            return View(allUsers);
         }
     }
 }

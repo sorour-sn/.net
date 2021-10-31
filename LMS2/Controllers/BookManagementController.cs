@@ -60,17 +60,17 @@ namespace LMS2.Controllers
                     await addBook.ImageFile.CopyToAsync(fileStream);
                 }
 
-                _BookRepository.Add(newBook);              
-                return View("ViewBooks");
+                _BookRepository.Add(newBook);
+                return RedirectToAction("ViewBooks", "BookManagement");
             }
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Issue(string IssuedBook)
+        public IActionResult Issue(BookCreate IssuedBook)
         { 
-            _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook);
+            _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook.BookID);
             return View("IssuedBook");  
         }
 

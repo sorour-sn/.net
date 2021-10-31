@@ -11,11 +11,13 @@
       @{
         if (@username == null)
         {
-          <p>
-            <a asp-action="Login" asp-controller="Member">Login</a>
-            /
-            <a asp-action="Signup" asp-controller="Users">Signup</a>
-          </p>
+              <p>
+                  <a asp-action="Login" asp-controller="Admins">Admin Login</a>
+                  /
+                  <a asp-action="Login" asp-controller="Member">Login</a>
+                  /
+                  <a asp-action="Signup" asp-controller="Users">Signup</a>
+              </p>
         }
         else
         {

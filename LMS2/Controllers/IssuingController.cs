@@ -32,10 +32,10 @@ namespace LMS2.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Issue(string IssuedBook)
+        public IActionResult Issue(BookIssue IssuedBook)
         { 
-            _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook);
-            return View("IssuedBook");  
+            _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook.BookID);
+            return RedirectToAction("IssuedBook", "Issuing");  
         }
 
         public IActionResult IssuedBook()
