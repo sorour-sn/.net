@@ -1,9 +1,9 @@
 @model LMS2.Models.BookCreate;
 
 
-<a asp-action="BookDetail?id=@Model.BookID">
+<a href="BookDetail/@Model.BookID">
     <div class="shadow book-item">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/91Y6gyoK8ZL.jpg" />
+        <img src="/Image/@Model.Image" onerror="this.src = '/assets/ImagePlaceholder.png'" />
         <div class="description">
             <strong>@Model.BookName</strong>
             <p>@Model.Author</p>

@@ -41,6 +41,13 @@ sl-button::part(label) {
     position: relative;
 }
 
+.welcome-note {
+    text-align: center;
+    color: var(--bs-purple);
+    /* margin-top: 30px; */
+    width: 60%;
+    margin: 30px auto 0;
+}
 
 .main-sidebar {
     height: 100%;
@@ -214,7 +221,7 @@ sl-button::part(label) {
 }
 
 .profile-actions {
-    margin-top: 50px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -275,4 +282,11 @@ sl-button::part(label) {
 
 .issue-item.even {
     background-color: var(--evenItem);
+}
+
+.book-list {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
