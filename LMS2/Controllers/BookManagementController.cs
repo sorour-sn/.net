@@ -60,8 +60,8 @@ namespace LMS2.Controllers
                     await addBook.ImageFile.CopyToAsync(fileStream);
                 }
 
-                _BookRepository.Add(newBook);              
-                return View("ViewBooks");
+                _BookRepository.Add(newBook);
+                return RedirectToAction("ViewBooks", "BookManagement");
             }
             return View();
         }

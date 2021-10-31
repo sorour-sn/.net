@@ -32,8 +32,8 @@
         <input type="hidden" value="@Model.BookID">
         <input type="submit" class="btn btn-outline-warning btn-lg" value="Edit">
     </form>
-    <form asp-controller="Issuing" asp-action="Issue" method="post">
-        <input type="hidden" asp-for="BookID" value=asp-route-id>
+    <form asp-action="Issue" asp-controller="Issuing">
+        <input type="hidden" asp-for="BookID" value=@Model.BookID>
         <input type="submit" class="btn btn-success btn-lg" value="Issue">
     </form>
 </div>

@@ -1,4 +1,4 @@
-@model LMS2.Models.MemberLogin
+@*@model LMS2.Models.MemberLogin*@
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
@@ -7,6 +7,7 @@
     Layout = "_Layout";
     ViewData["Title"] = "Profile";
     var username = @HttpContextAccessor.HttpContext.Session.GetString("_Username");
+    var status = HttpContextAccessor.HttpContext.Session.GetString("_Status");
 }
 
 <div class="profile-header">
@@ -14,37 +15,57 @@
         <object type="image/svg+xml" data="/assets/Curve.svg"></object>
         <div class="profile-header__data">
             <img src="/assets/Profile.png" draggable="false" />
-            <strong>FirstName</strong>
-            <p>@username</p>
+            <strong>@username</strong>
+            <p>@status</p>
         </div>
     </div>
 </div>
-<div class="profile-actions">
-    <a asp-action="IssuedBook" asp-controller="Issuing">
-        <div class="profile-actions__button shadow purple">
-            <object type="image/svg+xml" data="/assets/Bookmark.svg"></object>
-            <p class="big-text">Issued Books</p>
-        </div>
-    </a>
-    <a href="#">
-        <div class="profile-actions__button shadow green">
-            <object type="image/svg+xml" data="/assets/User.svg"></object>
-            <p class="big-text">Users List</p>
-        </div>
-    </a>
-    <a asp-action="Add" asp-controller="BookManagement">
-        <div class="profile-actions__button shadow yellow">
-            <object type="image/svg+xml" data="/assets/Add.svg"></object>
-            <p class="big-text">Add Book</p>
-        </div>
-    </a>
-    @* <a asp-action="Edit">
-        <div class="profile-actions__button shadow yellow">
-            <object type="image/svg+xml" data="/assets/Edit.svg"></object>
-            <p class="big-text">Edit Profile</p>
-        </div>
-    </a> *@
-</div>
+@if (status == "Member")
+{
+    <div class="profile-actions">
+        <a asp-action="IssuedBook" asp-controller="Issuing">
+            <div class="profile-actions__button shadow purple">
+                <object type="image/svg+xml" data="/assets/Bookmark.svg"></object>
+                <p class="big-text">Issued Books</p>
+            </div>
+        </a>
+        <a asp-action="Detail" asp-controller="Member">
+            <div class="profile-actions__button shadow green">
+                <object type="image/svg+xml" data="/assets/User.svg"></object>
+                <p class="big-text">Detail</p>
+            </div>
+        </a>
+        <a asp-action="ViewBooks" asp-controller="BookManagement">
+            <div class="profile-actions__button shadow yellow">
+                <object type="image/svg+xml" data="/assets/Add.svg"></object>
+                <p class="big-text">Books List</p>
+            </div>
+        </a>
+    </div>
+}
+@if (status == "Admin")
+{
+    <div class="profile-actions">
+        <a asp-action="ViewBooks" asp-controller="BookManagement">
+            <div class="profile-actions__button shadow purple">
+                <object type="image/svg+xml" data="/assets/Bookmark.svg"></object>
+                <p class="big-text">Issued Books</p>
+            </div>
+        </a>
+        <a asp-action="Detail" asp-controller="Member">
+            <div class="profile-actions__button shadow green">
+                <object type="image/svg+xml" data="/assets/User.svg"></object>
+                <p class="big-text">Detail</p>
+            </div>
+        </a>
+        <a asp-action="ViewBooks" asp-controller="BookManagement">
+            <div class="profile-actions__button shadow yellow">
+                <object type="image/svg+xml" data="/assets/Add.svg"></object>
+                <p class="big-text">Books List</p>
+            </div>
+        </a>
+    </div>
+}
 <div class="corner-pattern">
     <img src="/assets/corner-pattern.png" draggable="false" />
 </div>

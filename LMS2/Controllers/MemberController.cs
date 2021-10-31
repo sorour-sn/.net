@@ -49,7 +49,9 @@ namespace LMS2.Controllers
                     MemberLogin MemberModel = _MemberRepository.MemberLoginAccess(member.UserName, member.Password);
                     if (MemberModel != null)
                     {
+                        var Status = "Member";
                         HttpContext.Session.SetString("_Username", MemberModel.UserName);
+                        HttpContext.Session.SetString("_Status", Status);
                         ViewData["Username"] = HttpContext.Session.GetString("_Username");
                         return View("Profile");
                     }
@@ -63,7 +65,9 @@ namespace LMS2.Controllers
                         MemberLogin NewMember = _MemberRepository.MemberLoginAccess(newMember.UserName, newMember.Password);
                         if (NewMember != null)
                         {
+                            var Status = "Member";
                             HttpContext.Session.SetString("_Username", NewMember.UserName);
+                            HttpContext.Session.SetString("_Status", Status);
                             return View("Profile");
                         }
                     }
@@ -77,12 +81,19 @@ namespace LMS2.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("_Username");
-            return RedirectToAction("Profile", "Member");
+            HttpContext.Session.Remove("_Status");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Profile()
         {
             return View();
+        }
+
+        public IActionResult Detail()
+        {
+            var user = _UserRepository.GetUser(HttpContext.Session.GetString("_Username"));
+            return View(user);
         }
 
         //public IActionResult Edit()

@@ -11,7 +11,7 @@ namespace LMS2.Models
 
         public UserRegistration Add(UserRegistration addUser)
         {
-            addUser.UserName = _userRegistrationList.Max(u => u.UserName);
+            //addUser.UserName = _userRegistrationList.Max(u => u.UserName);
             _userRegistrationList.Add(addUser);
             return addUser;
         }

@@ -34,12 +34,14 @@
             </div>
         </div>
         <div class="form__end">
+            <p>@ViewBag.SuccessMessage</p>
             <a asp-action="Login" asp-controller="Member">Login</a>
             <input type="submit" class="btn btn-success" value="Create" />
         </div>
     </form>
     <!-- </div> -->
 </div>
+
 
 @* <div class="row">
     <div class="col-md-4">
@@ -118,5 +120,5 @@
 </div>
 
 @section Scripts {
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

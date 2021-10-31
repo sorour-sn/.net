@@ -35,7 +35,7 @@ namespace LMS2.Controllers
         public IActionResult Issue(BookIssue IssuedBook)
         { 
             _BookIssueRepository.Issue(HttpContext.Session.GetString("_Username"), IssuedBook.BookID);
-            return View("IssuedBook");  
+            return RedirectToAction("IssuedBook", "Issuing");  
         }
 
         public IActionResult IssuedBook()
