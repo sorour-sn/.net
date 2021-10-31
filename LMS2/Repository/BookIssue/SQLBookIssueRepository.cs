@@ -20,9 +20,11 @@ namespace LMS2.Models
             MemberLogin member = context.Members.Find(userName);
             BookCreate book = context.Books.Find(bookId);
             BookIssue issueBook = new BookIssue();
+           
+            //BookIssue issueBook = new BookIssue();
             issueBook.IssueId = context.BookIssues.Max(a => a.IssueId) + 1;
             //issueBook.IssueId = _bookIssuelist.Max(a => a.IssueId)+1;
-            issueBook.BookID = book.BookID;
+            issueBook.BookID = bookId;
             issueBook.BookName = book.BookName;
             issueBook.UserName = member.UserName;
             issueBook.FirstName = member.FirstName;
