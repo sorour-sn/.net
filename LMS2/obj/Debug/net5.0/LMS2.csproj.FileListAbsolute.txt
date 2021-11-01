@@ -181,3 +181,4 @@ C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_Issu
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Shared\_UserItemPartial.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\BookManagement\oldViewBooks.cshtml.g.cs
 C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\Detail.cshtml.g.cs
+C:\Users\lenovo\source\repos\LMS2\LMS2\obj\Debug\net5.0\Razor\Views\Member\UserDetail.cshtml.g.cs

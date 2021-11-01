@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using LMS2.Models;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LMS2.Controllers
 {
+    [Authorize]
     public class IssuingController : Controller
     {
         private readonly IBookIssueRepository _BookIssueRepository;

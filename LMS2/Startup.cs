@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore.SqlServer.Design;
 using LMS2.Models;
 using LMS2.Repository.Book;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace LMS2
 {
@@ -38,6 +40,11 @@ namespace LMS2
                 options.Cookie.IsEssential = true;
             });
             services.AddMemoryCache();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = "/Home/Index";
+ 
+            });
             services.AddControllersWithViews();
             string ConnectionString = @"Server=DESKTOP-8PVEJSN\SQLEXPRESS; Database=LMS2db; Trusted_Connection=true; ConnectRetryCount=0";
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));
@@ -67,6 +74,8 @@ namespace LMS2
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

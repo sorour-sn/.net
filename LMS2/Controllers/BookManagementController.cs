@@ -10,9 +10,11 @@ using LMS2.Repository.Book;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LMS2.Controllers
 {
+    [Authorize]
     public class BookManagementController : Controller
     {
         private readonly IBookRepository _BookRepository;
